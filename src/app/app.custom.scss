@@ -1,0 +1,33 @@
+
+form.view .mat-input-element:disabled,
+form.view .mat-select-disabled .mat-select-value {
+    color: #7a94a0;
+}
+
+// global settings module
+settings-layout .center .header .search-wrapper {
+    background-color: #ffffff;
+}
+
+.page-layout.carded.left-sidebar > .sidebar .header, .page-layout.carded.right-sidebar > .sidebar .header {
+    height: 80px;
+    min-height: 80px;
+    max-height: 80px;
+}
+
+.page-layout.carded > .top-bg {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100px;
+}
+
+// white bar up - without search bar 
+.page-layout.carded.left-sidebar > .center > .header, .page-layout.carded.right-sidebar > .center > .header {
+    display: flex;
+    height: 37px;
+    min-height: 37px;
+    max-height: 37px;
+}

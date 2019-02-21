@@ -1,0 +1,103 @@
+<div id="todo" class="page-layout carded left-sidebar inner-scroll">
+
+
+
+    <!-- TOP BACKGROUND -->
+    <div class="top-bg accent"></div>
+    <!-- / TOP BACKGROUND -->
+
+
+
+    <!-- SIDEBAR -->
+    <fuse-sidebar class="sidebar" name="todo-main-sidebar" position="left" lockedOpen="gt-md">
+       
+        <settings-sidebar></settings-sidebar>
+    </fuse-sidebar>
+    <!-- / SIDEBAR -->
+
+    <!-- CENTER -->
+    <div class="center">
+
+        <!-- CONTENT HEADER -->
+        <div class="header" fxLayout="row" fxLayoutAlign="start center">
+
+            <!-- <div class="search-wrapper" fxFlex fxLayout="row" fxLayoutAlign="start center">
+
+                <button mat-icon-button class="sidebar-toggle" fxHide.gt-md
+                        (click)="toggleSidebar('settings-sidebar')">
+                    <mat-icon>menu</mat-icon>
+                </button>
+
+            </div> -->
+
+        </div>
+        <!-- / CONTENT HEADER -->
+
+        <!-- CONTENT CARD -->
+        <div class="content-card">
+
+            <!-- CONTENT TOOLBAR -->
+            <div class="toolbar px-24 py-8">
+
+                <div class="todo-selection" fxFlex="row" fxLayoutAlign="start center">
+                    
+                    <button mat-icon-button >
+                        <mat-icon class="secondary-text">arrow_back</mat-icon>
+                    </button>
+
+                    <div class="toolbar-separator" ></div>
+
+                    <div fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-xs="column" fxLayoutAlign.gt-xs="center start">
+                        <!-- <div fxLayout="row" fxLayoutAlign="start center">
+                            <mat-icon class="secondary-text s-18">home</mat-icon>
+                            <mat-icon class="secondary-text s-16">chevron_right</mat-icon>
+                            <span class="secondary-text">{{'COMPANY_SETTINGS.TITLE' | translate}}</span>
+                        </div> -->
+                        <div class="h1 mt-0">{{ (settingsRegistry.getValue('editor') && settingsRegistry.getValue('editor').metadata.title) || 'Settings' }}</div>
+                    </div>
+
+                    
+                </div>
+
+                <div fxHide.gt-lg *ngIf="editable" >
+                    <div fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-xs="row"
+                    fxLayoutAlign.gt-xs="space-between center">
+                    
+                    <button *ngIf="!editMode"  (click)="edit()"
+                        mat-raised-button type="button" color="primary" 
+                        class="edit mt-16 mt-sm-0 mx-4">
+                        <mat-icon class="mr-8">save</mat-icon> Edit
+                    </button>
+                    
+                    <button *ngIf="editMode"  (click)="save()"
+                        mat-raised-button type="button" color="primary" 
+                        class="save mt-16 mt-sm-0 mx-4">
+                        <mat-icon class="mr-8">save</mat-icon> Save
+                    </button>
+        
+                    <button *ngIf="editMode"  (click)="cancel()"
+                        mat-raised-button type="button" color="primary" class="cancel mt-16 mt-sm-0 mx-4">
+                        <mat-icon class="mr-8">cancel</mat-icon> Cancel
+                    </button>
+                </div>
+                </div>
+
+            </div>
+            <!-- / CONTENT TOOLBAR -->
+
+            <!-- CONTENT -->
+            <div class="content" fxFlexAlign="row">
+
+                <router-outlet></router-outlet>
+                <!-- <company-settings></company-settings> -->
+
+            </div>
+            <!-- / CONTENT -->
+
+        </div>
+        <!-- / CONTENT CARD -->
+
+    </div>
+    <!-- / CENTER -->
+
+</div>

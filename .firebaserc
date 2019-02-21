@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "all-farm": {
+      "hosting": {
+        "app": [
+          "farm-app"
+        ]
+      }
+    }
+  }
+}

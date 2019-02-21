@@ -1,45 +1,109 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
-
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
-
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+af-alex
+AL Alex
 
 ---
 
-## Edit a file
+## run develop server
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
+```
+npm start
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+yarn start
+```
 
----
-
-## Create a file
-
-Next, you’ll add a new file to this repository.
-
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
-
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
+## build for production
+```
+npm run build-prod
+```
 
 ---
+# GIT BASIC Workflow 
 
-## Clone a repository
+### (this DRAFT FLOW uses only master branch)
 
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
+> we will probably use _master_ and _dev_ branches, so the following commands will use `dev` instead of `master`
 
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
 
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+- you might use a visual GIT client (use the commands as a guideline)
+
+
+---
+### Clone repo (ONE TIME)
+
+`git clone https://user@bitbucket.org/dancoteam/af-alex.git`
+
+
+- if you don't want to clone, and just connect you can use:
+
+`git remote add origin https://user@bitbucket.org/dancoteam/af-alex.git`
+
+
+---
+### Check GIT status (ANYTIME)
+
+`git status`
+
+```
+On branch master
+Your branch is up-to-date with 'origin/master'.
+```
+
+---
+### Get new data (OFTEN - no risk for your local copy)
+
+`git fetch origin`
+
+- this will only get new data from remote (doesn't merge changes on existing files)
+
+
+---
+### Get new data and merge remote changes into your local files (BEFORE FEATURE DEVELOP)
+
+`git pull origin master`
+
+- you should not have any uncommitted local changes before you pull
+
+- if you have some local changes in your working copy that you can't commit, and you need to start working on other feature, use stash feature
+
+- using stash you'll have a clean working copy before pull
+
+`git stash`
+
+```
+Saved working directory...
+```
+
+`git status`
+
+```
+# On branch master
+nothing to commit (working directory clean)
+```
+
+- list stashes with `git stash list`
+
+
+---
+### Working Locally - edit, stage, commit (AS OFTEN AS NEEDED FOR LOCAL DEVELOPMENT)
+
+> multiple commit if needed (don't mix different features into the same commit)
+
+
+- stage files locally
+
+`git add *`
+
+- commit with descriptive message
+
+`git commit -m "developer message"`
+
+
+---
+### Push to central repo (AFTER FEATURE DEVELOP)
+
+`git push origin master`
+
+ 
+
+
+
