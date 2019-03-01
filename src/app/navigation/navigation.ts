@@ -2,6 +2,14 @@ import { FuseNavigation } from '@fuse/types';
 
 export const navigation: FuseNavigation[] = [
     {
+        id       : 'start',
+        title    : 'Start',
+        translate: 'NAV.START',
+        type     : 'item',
+        icon     : 'dashboard',
+        url      : '/start'
+    },
+    {
         id       : 'settings',
         title    : 'Settings',
         translate: 'NAV.SETTINGS.TITLE',
@@ -13,10 +21,28 @@ export const navigation: FuseNavigation[] = [
         id       : 'items',
         title    : 'Livestock',
         translate: 'NAV.LIVESTOCK',
-        type     : 'item',
+        type     : 'group',
         icon     : 'drag_indicator',
-        url      : '/items-settings'
-    }
+        // url      : '/items-settings'
+        children : [ 
+            {
+                id       : 'items',
+                title    : 'Items',
+                translate: 'NAV.ITEMS',
+                type     : 'item',
+                icon     : 'drag_indicator',
+                url      : '/items',
+            }
+        ]
+    },
+    {
+        id       : 'items',
+        title    : 'Items',
+        translate: 'NAV.FARM_MANAGEMENT',
+        type     : 'item',
+        icon     : 'event_seat',
+        url      : '/inventories'
+    },
     // {
     //     id       : 'items',
     //     title    : 'Items',

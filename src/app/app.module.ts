@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
-import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule, MatStepperModule, MatCheckboxModule, MatMenuModule, MatTooltipModule, MatDatepickerModule, MatRippleModule } from '@angular/material';
+
 import { TranslateModule } from '@ngx-translate/core';
 import 'hammerjs';
 
@@ -26,6 +26,7 @@ import { FakeDbService } from 'app/fake-data/fake-data.service';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { StartComponent } from './main/start/start.component';
 import { SettingsRouting } from './main/settings/settings.routing';
+import { MaterialComponentsModule } from './shared/material-components/material-components.module';
 
 const appRoutes: Routes = [
     {
@@ -41,7 +42,7 @@ const appRoutes: Routes = [
 @NgModule({
     declarations: [
         AppComponent,
-        StartComponent,
+        StartComponent
     ],
     imports     : [
         BrowserModule,
@@ -60,21 +61,7 @@ const appRoutes: Routes = [
         // Material moment date module
         MatMomentDateModule,
 
-        // Material
-        MatButtonModule,
-        MatIconModule,
-        MatButtonModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatInputModule,
-        MatSelectModule,
-        MatStepperModule,
-        MatCheckboxModule,
-        MatMenuModule,
-        
-        MatTooltipModule,
-        MatDatepickerModule,
-        MatRippleModule,
+        MaterialComponentsModule,
 
         // Fuse modules
         FuseModule.forRoot(fuseConfig),

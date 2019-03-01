@@ -9,6 +9,8 @@ import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, Mat
 
 import { CompanySettingsComponent } from './company-settings/company-settings.component';
 import { HoldingSettingsComponent } from './holding-settings/holding-settings.component';
+import { UserSettingsComponent } from './user-settings/user-settings.component';
+import { HoldingService } from './holding.service';
 import { CompanyService } from './company.service';
 import { SettingsSidebarComponent } from './layout/settings-sidebar/settings-sidebar.component';
 import { SettingsLayoutComponent } from './layout/settings-layout.component';
@@ -40,11 +42,14 @@ const routes = [
             },
             {
                 path: 'holding',
-                component: HoldingSettingsComponent
+                component: HoldingSettingsComponent,
+                resolve: {
+                    company: HoldingService
+                }
             },
             {
                 path: 'users',
-                component: UsersComponent
+                component: UserSettingsComponent
             },
             {
                 path: 'roles',
@@ -69,6 +74,7 @@ const routes = [
     declarations: [
         CompanySettingsComponent,
         HoldingSettingsComponent,
+        UserSettingsComponent,
         SettingsSidebarComponent,
         SettingsLayoutComponent,
         UsersComponent,
@@ -98,11 +104,13 @@ const routes = [
     ],
     providers   : [
         CompanyService,
+        HoldingService,
         SettingsRegistry
     ],
     exports     : [
         CompanySettingsComponent,
-        HoldingSettingsComponent
+        HoldingSettingsComponent,
+        UserSettingsComponent
     ]
 })
 

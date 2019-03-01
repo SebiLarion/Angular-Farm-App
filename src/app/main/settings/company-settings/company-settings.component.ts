@@ -125,15 +125,19 @@ export class CompanySettingsComponent implements OnInit, ViewEditForm, AfterView
     {
         return this._formBuilder.group({
             name:       [this.companyDetails.name, Validators.required],
+            commonname: [this.companyDetails.commonname, Validators.required],
+            holdingid:  [this.companyDetails.holdingid, Validators.required],
             identifier: [this.companyDetails.identifier, Validators.required],
             address:    [this.companyDetails.address],
             address2:   [this.companyDetails.address2],
             email:      [this.companyDetails.email, Validators.email],
             phone:      [this.companyDetails.phone],
             city:       [this.companyDetails.city],
-            region:     [this.companyDetails.region],
-            postalCode: [this.companyDetails.postalCode, [Validators.minLength(3), Validators.maxLength(7)]],
-            country:    [this.companyDetails.country]
+            state:      [this.companyDetails.state],
+            regnumber:  [this.companyDetails.regnumber, [Validators.minLength(3), Validators.maxLength(7)]],
+            taxnumber:  [this.companyDetails.taxnumber, [Validators.minLength(3), Validators.maxLength(7)]],
+            country:    [this.companyDetails.country],
+            note:       [this.companyDetails.note],
         });
     }
 

@@ -1,0 +1,209 @@
+<div id="product" class="page-layout carded fullwidth inner-scroll">
+
+  <!-- TOP BACKGROUND -->
+  <div class="top-bg accent"></div>
+  <!-- / TOP BACKGROUND -->
+
+  <!-- CENTER -->
+  <div class="center">
+
+      <!-- HEADER -->
+      <div class="header accent" fxLayout="row" fxLayoutAlign="space-between center">
+
+          <!-- APP TITLE -->
+          <div fxLayout="row" fxLayoutAlign="start center">
+
+              <button mat-icon-button class="mr-0 mr-sm-16" [routerLink]="'/items'">
+                  <mat-icon>arrow_back</mat-icon>
+              </button>
+
+              <div fxLayout="column" fxLayoutAlign="start start"
+                   [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+                  <div class="h2" *ngIf="pageType ==='edit'">
+                      {{item.name}}
+                  </div>
+                  <div class="h2" *ngIf="pageType ==='new'">
+                      New Item
+                  </div>
+                  <div class="subtitle secondary-text">
+                      <span>Item Detail</span>
+                  </div>
+              </div>
+          </div>
+          <!-- / APP TITLE -->
+
+          <!-- <button mat-raised-button
+                  class="save-product-button"
+                  [disabled]="form.invalid"
+                  *ngIf="pageType ==='new'" (click)="addItem()">
+              <span>ADD</span>
+          </button> -->
+
+          <!-- <button mat-raised-button
+                  class="save-product-button"
+                  [disabled]="form.invalid || form.pristine"
+                  *ngIf="pageType ==='edit'" (click)="saveItem()">
+              <span>SAVE</span>
+          </button> -->
+
+        <div fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-xs="row"
+          fxLayoutAlign.gt-xs="space-between center">
+
+            <button *ngIf="!editMode"  (click)="edit()"
+                mat-raised-button type="button" color="primary" 
+                class="edit mt-16 mt-sm-0 mx-4">
+                <mat-icon class="mr-8">save</mat-icon> Edit
+            </button>
+            
+            <button *ngIf="editMode && pageType ==='new'" (click)="add()" 
+                [disabled]="itemForm.invalid || itemForm.pristine"
+                mat-raised-button type="button" color="primary" 
+                class="save mt-16 mt-sm-0 mx-4">
+                <mat-icon class="mr-8">save</mat-icon> Add
+            </button>
+
+            <button *ngIf="editMode && pageType ==='edit'" (click)="save()" 
+                [disabled]="itemForm.invalid || itemForm.pristine"
+                mat-raised-button type="button" color="primary" 
+                class="save mt-16 mt-sm-0 mx-4">
+                <mat-icon class="mr-8">save</mat-icon> Save
+            </button>
+
+            <button *ngIf="editMode"  (click)="cancel()"
+                mat-raised-button type="button" color="primary" class="cancel mt-16 mt-sm-0 mx-4">
+                <mat-icon class="mr-8">cancel</mat-icon> Cancel
+            </button>
+        </div>
+
+
+      </div>
+      <!-- / HEADER -->
+
+      <!-- CONTENT CARD -->
+      <div class="content-card">
+
+        <!-- CONTENT -->
+        <div class="content">
+
+          <form *ngIf="itemForm"  name="itemForm" [formGroup]="itemForm" [style.fontSize.px]="14" [style.lineHight.px]="16" [ngClass]="{'view': !editMode }"
+            class="product w-100-p" fxLayout="column" fxFlex>
+
+            <mat-tab-group>
+
+                <mat-tab label="Generic">
+
+                  <div class="tab-content p-24" fusePerfectScrollbar fxLayout="column">
+
+                    <div fxLayout="row" fxLayoutAlign="space-between">
+
+                      <mat-form-field appearance="outline" floatLabel="always" fxFlex="40">
+                        <mat-label>Item Code</mat-label>
+                        <input matInput placeholder="Item Code"
+                                name="code"
+                                formControlName="code"
+                                required>
+                      </mat-form-field>
+
+                      <mat-form-field appearance="outline" floatLabel="always" fxFlex="40">
+                          <mat-label>Item Name</mat-label>
+                          <input matInput placeholder="Item Name"
+                                  name="name"
+                                  formControlName="name"
+                                  required>
+                      </mat-form-field>
+
+                      <div class="pt-20" fxFlex="15">
+                        <mat-slide-toggle name="active" formControlName="active">
+                            Active
+                        </mat-slide-toggle>
+                      </div>
+
+                    </div>
+
+                      <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                          <mat-label>Description</mat-label>
+                          <textarea matInput placeholder="Item Description"
+                                    name="description"
+                                    formControlName="description"
+                                    rows="5">
+                          </textarea>
+                      </mat-form-field>
+
+                  </div>
+
+                </mat-tab>
+
+                <mat-tab label="Pricing">
+
+                    <div class="tab-content p-24" fusePerfectScrollbar>
+
+                      <div fxLayout="row" fxLayoutAlign="space-between">
+
+                        <mat-form-field appearance="outline" floatLabel="always" fxFlex="30">
+                          <mat-label>Tax</mat-label>
+                          <input matInput placeholder="Tax"
+                                  name="tax"
+                                  formControlName="tax"
+                                  type="number">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" floatLabel="always" fxFlex="30">
+                            <mat-label>Discount</mat-label>
+                            <input matInput placeholder="Discount"
+                                    name="discount"
+                                    formControlName="discount"
+                                    type="number">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" floatLabel="always" fxFlex="30">
+                            <mat-label>Total</mat-label>
+                            <input matInput placeholder="Total"
+                                    name="total"
+                                    formControlName="total"
+                                    type="number">
+                            <span matPrefix>$&nbsp;</span>
+                            <mat-hint align="start">Add a total value for this item
+                            </mat-hint>
+                        </mat-form-field>
+
+                      </div>
+
+                    </div>
+                </mat-tab>
+
+                <mat-tab label="Misc">
+
+                    <div class="tab-content p-24" fusePerfectScrollbar>
+
+                      <mat-form-field appearance="outline" class="mr-sm-12" fxFlex>
+                        <mat-label>Created on</mat-label>
+                        <input matInput [matDatepicker]="createdOnPicker" formControlName="createdOn">
+                        <mat-datepicker-toggle matSuffix [for]="createdOnPicker"></mat-datepicker-toggle>
+                        <mat-datepicker #createdOnPicker></mat-datepicker>
+                      </mat-form-field>
+
+                      <mat-form-field appearance="outline" class="mr-sm-12" fxFlex>
+                        <mat-label>Updated on</mat-label>
+                        <input matInput [matDatepicker]="updatedOnPicker" formControlName="updatedOn">
+                        <mat-datepicker-toggle matSuffix [for]="updatedOnPicker"></mat-datepicker-toggle>
+                        <mat-datepicker #updatedOnPicker></mat-datepicker>
+                      </mat-form-field>
+
+                    </div>
+
+                </mat-tab>
+
+            </mat-tab-group>
+
+          </form>
+
+        </div>
+        <!-- / CONTENT -->
+
+      </div>
+      <!-- / CONTENT CARD -->
+
+  </div>
+  <!-- / CENTER -->
+
+</div>

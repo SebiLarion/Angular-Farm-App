@@ -8,26 +8,26 @@ import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.
 
 import { locale as english } from '../i18n/en';
 import { locale as romanian } from '../i18n/ro';
-import { HoldingService } from '../holding.service';
+import { UserService } from '../user.service';
 import { SettingsRegistry } from '../settings.registry';
 import { ViewEditForm } from 'app/types/view-edit.interface';
 
 @Component({
-    selector   : 'holding-settings',
-    templateUrl: './holding-settings.component.html',
-    styleUrls  : ['./holding-settings.component.scss']
+    selector   : 'user-settings',
+    templateUrl: './user-settings.component.html',
+    styleUrls  : ['./user-settings.component.scss']
 })
-export class HoldingSettingsComponent implements OnInit, ViewEditForm, AfterViewInit
+export class UserSettingsComponent implements OnInit, ViewEditForm, AfterViewInit
 {
 
     /* component metadata - used by wrappers/layouts */
     metadata = {
-        title: 'Holding Settings',
+        title: 'User Settings',
         editable: true
     }    
 
     form: FormGroup;
-    holdingDetails: any;
+    userDetails: any;
     latestSavedData: any;
     companies: any[];
     editMode: boolean = false;
@@ -45,7 +45,7 @@ export class HoldingSettingsComponent implements OnInit, ViewEditForm, AfterView
     constructor(
         private _fuseTranslationLoaderService: FuseTranslationLoaderService,
         private _formBuilder: FormBuilder,
-        private _holding: HoldingService,
+        private _user: UserService,
         private settingsRegistry: SettingsRegistry
     )
     {
@@ -55,12 +55,12 @@ export class HoldingSettingsComponent implements OnInit, ViewEditForm, AfterView
     }
 
     ngOnInit(): void {
-        // Subscribe to holding data
-        this._holding.onHoldingDetailsChanged
+        // Subscribe to user data
+        this._user.onUserDetailsChanged
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(companies => {
                 this.companies = companies;
-                this.holdingDetails = companies[0]; // find by id and service method getHoldingById or byLoggedInUser
+                this.userDetails = companies[0]; // find by id and service method getUserById or byLoggedInUser
                 this.form = this.createEditForm();
 
 
@@ -73,7 +73,7 @@ export class HoldingSettingsComponent implements OnInit, ViewEditForm, AfterView
                 )
                 .subscribe(data => {
                     console.log('Data changed: ', data);
-                    // this._holding.updateHolding(data);
+                    // this._user.updateUser(data);
                 });
 
         });
@@ -98,7 +98,7 @@ export class HoldingSettingsComponent implements OnInit, ViewEditForm, AfterView
         console.log('getRawValue (parent): ', this.form.getRawValue());
 
         let formData = this.getFormData();
-        this._holding.updateHolding( formData );
+        this._user.updateUser( formData );
 
         // this line will run after data is saved on server 
         // if data is not saved on server this.latestSavedData will remain untouched
@@ -124,20 +124,17 @@ export class HoldingSettingsComponent implements OnInit, ViewEditForm, AfterView
     createEditForm(): FormGroup
     {
         return this._formBuilder.group({
-            name:       [this.holdingDetails.name, Validators.required],
-            commonname: [this.holdingDetails.commonname, Validators.required],
-            department: [this.holdingDetails.department, Validators.required],
-            address:    [this.holdingDetails.address],
-            address2:   [this.holdingDetails.address2],
-            email:      [this.holdingDetails.email, Validators.email],
-            phone:      [this.holdingDetails.phone],
-            postalCode: [this.holdingDetails.postalCode],
-            city:       [this.holdingDetails.city],
-            url:        [this.holdingDetails.url],
-            regnumber:  [this.holdingDetails.regnumber, [Validators.minLength(3), Validators.maxLength(7)]],
-            taxnumber:  [this.holdingDetails.taxnumber, [Validators.minLength(3), Validators.maxLength(7)]],
-            country:    [this.holdingDetails.country],
-            note:       [this.holdingDetails.note]
+            name:       [this.userDetails.name, Validators.required],
+            email:      [this.userDetails.email, Validators.email],
+            password:   [this.userDetails.password, Validators.email],
+            firsname:   [this.userDetails.firstname, Validators.required],
+            lastname:   [this.userDetails.lastname, Validators.required],
+            company:    [this.userDetails.company, Validators.required],
+            phone:      [this.userDetails.phone, Validators.required],
+            role_admin:     [this.userDetails.holding_admin, Validators.required],
+            holding_admin:     [this.userDetails.holding_admin, Validators.required],
+            role_livestock:     [this.userDetails.role_livestock, Validators.required],
+            role_agriculture:     [this.userDetails.role_agriculture, Validators.required]
         });
     }
 
