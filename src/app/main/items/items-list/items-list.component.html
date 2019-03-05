@@ -19,7 +19,7 @@
                     shopping_basket
                 </mat-icon>
                 <span class="logo-text h1" [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
-                    Items</span>
+                    Categories</span>
             </div>
             <!-- / APP TITLE -->
 
@@ -27,7 +27,7 @@
             <div class="search-wrapper  ml-sm-32">
                 <div class="search" fxFlex fxLayout="row" fxLayoutAlign="start center">
                     <mat-icon>search</mat-icon>
-                    <input #filter placeholder="Search for an item">
+                    <input #filter placeholder="Search for a category">
                 </div>
             </div>
             <!-- / SEARCH -->
@@ -36,7 +36,7 @@
             <button mat-raised-button
                 [routerLink]="'/items/new'"
                 class="add-product-button fuse-white mt-24 mt-md-0">
-                <span>NEW ITEM</span>
+                <span>NEW CATEGORY</span>
             </button>
             <!-- / ADD BUTTON -->
 
@@ -61,10 +61,10 @@
                 </ng-container>
 
                 <!-- Code Column -->
-                <ng-container matColumnDef="code">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header fxHide fxShow.gt-sm>Code</mat-header-cell>
+                <ng-container matColumnDef="category">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header fxHide fxShow.gt-sm>Category</mat-header-cell>
                     <mat-cell *matCellDef="let item" fxHide fxShow.gt-sm>
-                        <p class="text-truncate">{{item.code}}</p>
+                        <p class="text-truncate">{{item.category}}</p>
                     </mat-cell>
                 </ng-container>
 
@@ -89,23 +89,23 @@
                 </ng-container>
 
                 <!-- Total Price Column -->
-                <ng-container matColumnDef="total">
+                <!-- <ng-container matColumnDef="total">
                     <mat-header-cell *matHeaderCellDef mat-sort-header fxHide fxShow.gt-md>Total</mat-header-cell>
                     <mat-cell *matCellDef="let item" fxHide fxShow.gt-md>
                         <p class="total-price text-truncate">
                             {{item.total | currency:'USD':'symbol'}}
                         </p>
                     </mat-cell>
-                </ng-container>
+                </ng-container> -->
 
                 <!-- Active Column -->
-                <ng-container matColumnDef="active">
+                <!-- <ng-container matColumnDef="active">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Active</mat-header-cell>
                     <mat-cell *matCellDef="let item">
                         <mat-icon *ngIf="item.active" class="active-icon green-600 s-16">check</mat-icon>
                         <mat-icon *ngIf="!item.active" class="active-icon red-500 s-16">close</mat-icon>
                     </mat-cell>
-                </ng-container>
+                </ng-container> -->
 
                 <!-- Date Column -->
                 <ng-container matColumnDef="createdOn">
@@ -113,6 +113,14 @@
                     <mat-cell *matCellDef="let item" fxHide fxShow.gt-sm>
                         <p class="text-truncate">
                             {{item.createdOn | date:'yyyy/MM/dd'}}
+                        </p>
+                    </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="updatedOn">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header fxHide fxShow.gt-sm>Updated on</mat-header-cell>
+                    <mat-cell *matCellDef="let item" fxHide fxShow.gt-sm>
+                        <p class="text-truncate">
+                            {{item.updatedOn | date:'yyyy/MM/dd'}}
                         </p>
                     </mat-cell>
                 </ng-container>

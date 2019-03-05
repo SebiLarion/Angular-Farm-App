@@ -88,16 +88,32 @@ export class ItemComponent implements OnInit, OnDestroy
     {
 
         return this._formBuilder.group({
-            id:           [this.item.id],
-            code:         [this.item.code],
-            name:         [this.item.name],
-            description:  [this.item.description],
-            active:       [this.item.active],
-            tax:          [this.item.tax],
-            discount:     [this.item.discount],
-            total:        [this.item.total],
-            createdOn:    [this.item.createdOn],
-            updatedOn:    [this.item.updatedOn],
+            id:              [this.item.id],
+            category:        [this.item.category],
+            name:            [this.item.name],
+            type:            [this.item.type],
+            minumumStoc:     [this.item.minumumStoc],
+            warranty:        [this.item.warranty],
+            specialDiscount: [this.item.specialDiscount],
+            maximumDiscount: [this.item.maximumDiscount],
+            primaryUm:       [this.item.primaryUm],
+            netWeight:       [this.item.netWeight],
+            grossWeight:     [this.item.grossWeight],
+            width:           [this.item.width],
+            height:          [this.item.height],
+            depth:           [this.item.depth],
+            um:              [this.item.um],
+            supDiscount:     [this.item.supDiscount],
+            transport:       [this.item.transport],
+            customs:         [this.item.customs],
+            directCosts:     [this.item.directCosts],
+            salePrice:       [this.item.salePrice],
+            currency:        [this.item.currency],
+            description:     [this.item.description],
+            image:           [this.item.image],
+            createdOn:       [this.item.createdOn],
+            updatedOn:       [this.item.updatedOn],
+            
         });
     }
 

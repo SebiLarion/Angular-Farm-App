@@ -20,7 +20,7 @@ import { takeUntil } from 'rxjs/internal/operators';
 export class ItemsListComponent implements OnInit, OnDestroy
 {
     dataSource: FilesDataSource | null;
-    displayedColumns = ['id', 'code', 'name', 'description', 'total', 'active', 'createdOn'];
+    displayedColumns = ['id',  'category', 'name', 'description',  'createdOn', 'updatedOn'];
 
     @ViewChild(MatPaginator)
     paginator: MatPaginator;

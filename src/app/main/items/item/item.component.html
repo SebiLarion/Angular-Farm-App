@@ -23,10 +23,10 @@
                       {{item.name}}
                   </div>
                   <div class="h2" *ngIf="pageType ==='new'">
-                      New Item
+                      New Categories
                   </div>
                   <div class="subtitle secondary-text">
-                      <span>Item Detail</span>
+                      <span>Add Item Category</span>
                   </div>
               </div>
           </div>
@@ -87,111 +87,253 @@
 
           <form *ngIf="itemForm"  name="itemForm" [formGroup]="itemForm" [style.fontSize.px]="14" [style.lineHight.px]="16" [ngClass]="{'view': !editMode }"
             class="product w-100-p" fxLayout="column" fxFlex>
+            <hr>
+
+            <div fxLayout="row" fxLayoutAlign="space-between">
+
+              <mat-form-field appearance="outline" floatLabel="always" fxFlex="30">
+                <mat-label>Category</mat-label>
+                <input matInput placeholder="Category"
+                        name="category"
+                        formControlName="category"
+                        required>
+            </mat-form-field>
+
+              <mat-form-field appearance="outline" floatLabel="always" fxFlex="30">
+                  <mat-label>Name</mat-label>
+                  <input matInput placeholder="Name"
+                          name="name"
+                          formControlName="name"
+                          required>
+              </mat-form-field>   
+              <mat-form-field appearance="outline" floatLabel="always"  fxFlex="10" >
+                <mat-label>Type</mat-label>
+                <mat-select  name="type"
+                        formControlName="type"
+                        placeholder="200"
+                        required>
+                        <mat-option [value]="100">100</mat-option>
+                        <mat-option [value]="200">200</mat-option>
+                        </mat-select>
+            </mat-form-field>   
+
+          </div>
 
             <mat-tab-group>
 
-                <mat-tab label="Generic">
+                <mat-tab label="Default Values"  >
 
-                  <div class="tab-content p-24" fusePerfectScrollbar fxLayout="column">
+                  <div class="tab-content p-24" fusePerfectScrollbar >
 
                     <div fxLayout="row" fxLayoutAlign="space-between">
 
-                      <mat-form-field appearance="outline" floatLabel="always" fxFlex="40">
-                        <mat-label>Item Code</mat-label>
-                        <input matInput placeholder="Item Code"
-                                name="code"
-                                formControlName="code"
+                      <mat-form-field appearance="outline" floatLabel="always" fxFlex="30">
+                          <mat-label>Minumum stoc</mat-label> 
+                          <input matInput placeholder="Minumum Stoc"
+                                name="minumumStoc"
+                                formControlName="minumumStoc"
                                 required>
                       </mat-form-field>
 
-                      <mat-form-field appearance="outline" floatLabel="always" fxFlex="40">
-                          <mat-label>Item Name</mat-label>
-                          <input matInput placeholder="Item Name"
-                                  name="name"
-                                  formControlName="name"
+                      <mat-form-field appearance="outline" floatLabel="always" fxFlex="30">
+                          <mat-label>Warranty</mat-label>
+                          <input matInput placeholder="Warranty"
+                                  name="warranty"
+                                  formControlName="warranty"
                                   required>
-                      </mat-form-field>
-
-                      <div class="pt-20" fxFlex="15">
-                        <mat-slide-toggle name="active" formControlName="active">
-                            Active
-                        </mat-slide-toggle>
-                      </div>
-
+                      </mat-form-field>                     
                     </div>
 
-                      <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
-                          <mat-label>Description</mat-label>
-                          <textarea matInput placeholder="Item Description"
-                                    name="description"
-                                    formControlName="description"
-                                    rows="5">
-                          </textarea>
+                    <div fxLayout="row" fxLayoutAlign="space-between">
+
+                      <mat-form-field appearance="outline" floatLabel="always" fxFlex="30">
+                        <mat-label>Minumum stoc</mat-label>
+                        <input matInput placeholder="Minumum Stoc"
+                        name="minumumStoc"
+                        formControlName="minumumStoc"
+                        required>
+              </mat-form-field>
+
+                      <mat-form-field appearance="outline" floatLabel="always" fxFlex="30">
+                          <mat-label>Special discount</mat-label>
+                          <input matInput placeholder="Special discount"
+                                  name="specialDiscount"
+                                  formControlName="specialDiscount"
+                                  required>
+                      </mat-form-field>                     
+                    </div>
+
+                    
+
+                    <div fxLayout="row" fxLayoutAlign="end">
+
+                      <mat-form-field appearance="outline" floatLabel="always" fxFlex="30" >
+                          <mat-label>Maximum discount</mat-label>
+                          <input matInput placeholder="Maximum discount"
+                                  name="maximumDiscount"
+                                  formControlName="maximumDiscount"
+                                  required>
+                      </mat-form-field>                 
+
+                     </div>
+
+
+                      <mat-form-field appearance="outline" floatLabel="always"  fxLayout="column">
+                          <mat-label>Properties</mat-label>
+                                                    
+                          <div fxLayout="column" >
+                            <mat-form-field appearance="outline" floatLabel="always" fxFlex="30" >
+                              <mat-label>Primary U/M</mat-label>
+                             <mat-select placeholder= "KOS" >                                  
+                                <mat-option value="kos">KOS</mat-option>
+                                <mat-option value="m">M</mat-option>
+                                <mat-option value="kg">KG</mat-option>
+                             </mat-select>
+                          </mat-form-field>                                           
+                                                                                                            
+                         <mat-form-field appearance="outline" floatLabel="always" fxFlex="30">
+                              <mat-label>Net Weight</mat-label>
+                              <input matInput placeholder="Net Weight"
+                                      name="netWeight"
+                                      formControlName="netWeight"
+                                      required>
+                            </mat-form-field>
+      
+                            <mat-form-field appearance="outline" floatLabel="always" fxFlex="30">
+                                <mat-label>Gross Weight</mat-label>
+                                <input matInput placeholder="Gross Weight"
+                                        name="grossWeight"
+                                        formControlName="grossWeight"
+                                        required>
+                            </mat-form-field> 
+                            <div fxLayout="row" fxFlex="30"></div>   
+                                                         
+                          </div>  
+
+                          <div fxLayout="column"  fxFlex="10"></div>  
+
+                          <div fxLayout="column">
+                              <mat-form-field appearance="outline" floatLabel="always" fxFlex="30">
+                                <mat-label>Width</mat-label>
+                                <input matInput placeholder="Width"
+                                        name="width"
+                                        formControlName="width"
+                                        required>
+                              </mat-form-field>
+        
+                              <mat-form-field appearance="outline" floatLabel="always" fxFlex="30">
+                                  <mat-label>Height</mat-label>
+                                  <input matInput placeholder="Height"
+                                          name="height"
+                                          formControlName="height"
+                                          required>
+                              </mat-form-field>  
+                              <mat-form-field appearance="outline" floatLabel="always" fxFlex="30">
+                                  <mat-label>Depth</mat-label>
+                                  <input matInput placeholder="Depth"
+                                          name="depth"
+                                          formControlName="depth"
+                                          required>
+                              </mat-form-field>  
+                              <mat-form-field appearance="outline" floatLabel="always" fxFlex="30">
+                                  <mat-label>U/M</mat-label>
+                                  <input matInput placeholder="U/M"
+                                          name="um"
+                                          formControlName="um"
+                                          required>
+                              </mat-form-field> 
+                             
+                            </div>                                                                 
+                           
+                           
+                                                
                       </mat-form-field>
 
                   </div>
 
                 </mat-tab>
 
-                <mat-tab label="Pricing">
+                <mat-tab label="Costing Pricing">
 
                     <div class="tab-content p-24" fusePerfectScrollbar>
 
-                      <div fxLayout="row" fxLayoutAlign="space-between">
+                        <div fxLayout="row" fxLayoutAlign="space-between">
+
+                      <div fxLayout="column" fxLayoutAlign>
 
                         <mat-form-field appearance="outline" floatLabel="always" fxFlex="30">
-                          <mat-label>Tax</mat-label>
-                          <input matInput placeholder="Tax"
-                                  name="tax"
-                                  formControlName="tax"
-                                  type="number">
+                          <mat-label>Supplier`s Discount</mat-label>
+                          <input matInput placeholder="Supplier`s Discount"
+                                  name="supDiscount"
+                                  formControlName="supDiscount"
+                                  required>
                         </mat-form-field>
 
                         <mat-form-field appearance="outline" floatLabel="always" fxFlex="30">
-                            <mat-label>Discount</mat-label>
-                            <input matInput placeholder="Discount"
-                                    name="discount"
-                                    formControlName="discount"
-                                    type="number">
+                            <mat-label>Transport</mat-label>
+                            <input matInput placeholder="Transport"
+                                    name="transport"
+                                    formControlName="transport"
+                                    required>
                         </mat-form-field>
-
                         <mat-form-field appearance="outline" floatLabel="always" fxFlex="30">
-                            <mat-label>Total</mat-label>
-                            <input matInput placeholder="Total"
-                                    name="total"
-                                    formControlName="total"
-                                    type="number">
-                            <span matPrefix>$&nbsp;</span>
-                            <mat-hint align="start">Add a total value for this item
-                            </mat-hint>
-                        </mat-form-field>
+                          <mat-label>Customs</mat-label>
+                          <input matInput placeholder="Customs"
+                                  name="customs"
+                                  formControlName="customs"
+                                  required>
+                      </mat-form-field>
+                      <mat-form-field appearance="outline" floatLabel="always" fxFlex="30">
+                        <mat-label>Direct Costs</mat-label>
+                        <input matInput placeholder="Direct Costs"
+                                name="directCosts"
+                                formControlName="directCosts"
+                                required>
+                    </mat-form-field>
+                       </div>
+                       <div fxLayout="column" >
+
+                          <mat-form-field appearance="outline" floatLabel="always" fxFlex="30">
+                            <mat-label>Sale Price</mat-label>
+                            <input matInput placeholder="Sale Price"
+                                    name="salePrice"
+                                    formControlName="salePrice"
+                                    required>
+                          </mat-form-field>
+
+                          <mat-form-field appearance="outline" floatLabel="always" fxFlex="10">
+                              <mat-label>Currency</mat-label>
+                              <mat-select placeholder= "EUR">                                          
+                                  <mat-option value="eur">EUR</mat-option>
+                                  <mat-option value="ron">RON</mat-option>
+                               </mat-select>
+                            </mat-form-field>
+                          </div>
+                     </div>                
+                     
+                     
+                    </div> 
+                </mat-tab>
+
+                <mat-tab label="Description">
+
+                    <div class="tab-content p-24" fusePerfectScrollbar>
+
+                      <mat-form-field appearance="outline" class="mr-sm-12" fxFlex>
+                          <textarea matInput placeholder="A description " 
+                                    name="description"
+                                    formControlName="description"
+                                    required>
+                                                               
+                          </textarea>
+                      </mat-form-field>
 
                       </div>
 
-                    </div>
                 </mat-tab>
-
-                <mat-tab label="Misc">
-
-                    <div class="tab-content p-24" fusePerfectScrollbar>
-
-                      <mat-form-field appearance="outline" class="mr-sm-12" fxFlex>
-                        <mat-label>Created on</mat-label>
-                        <input matInput [matDatepicker]="createdOnPicker" formControlName="createdOn">
-                        <mat-datepicker-toggle matSuffix [for]="createdOnPicker"></mat-datepicker-toggle>
-                        <mat-datepicker #createdOnPicker></mat-datepicker>
-                      </mat-form-field>
-
-                      <mat-form-field appearance="outline" class="mr-sm-12" fxFlex>
-                        <mat-label>Updated on</mat-label>
-                        <input matInput [matDatepicker]="updatedOnPicker" formControlName="updatedOn">
-                        <mat-datepicker-toggle matSuffix [for]="updatedOnPicker"></mat-datepicker-toggle>
-                        <mat-datepicker #updatedOnPicker></mat-datepicker>
-                      </mat-form-field>
-
-                    </div>
-
-                </mat-tab>
+                <mat-tab label="Image">
+                                 
+              </mat-tab>
 
             </mat-tab-group>
 
