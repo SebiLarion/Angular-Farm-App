@@ -2,28 +2,37 @@ import { FuseNavigation } from '@fuse/types';
 
 export const navigation: FuseNavigation[] = [
     {
-        id       : 'start',
-        title    : 'Start',
-        translate: 'NAV.START',
-        type     : 'item',
-        icon     : 'dashboard',
-        url      : '/start'
-    },
-    {
-        id       : 'settings',
-        title    : 'Settings',
-        translate: 'NAV.SETTINGS.TITLE',
-        type     : 'item',
-        icon     : 'settings',
-        url      : '/settings'
-    },
-    {
-        id       : 'items',
-        title    : 'Livestock',
-        translate: 'NAV.LIVESTOCK',
+        id       : 'agricultural',
+        title    : 'Development',
+        // translate: 'NAV.AGRICULTURAL.TITLE',
         type     : 'group',
         icon     : 'drag_indicator',
         // url      : '/items-settings'
+        children : [ 
+            {
+                id       : 'suppliers',
+                title    : 'Suppliers',
+                translate: 'NAV.AGRICULTURAL.SUPPLIERS',
+                type     : 'item',
+                icon     : 'drag_indicator',
+                url      : '/agricultural/suppliers',
+            },
+            {
+                id       : 'customers',
+                title    : 'Customers',
+                translate: 'NAV.AGRICULTURAL.CUSTOMERS',
+                type     : 'item',
+                icon     : 'drag_indicator',
+                url      : '/agricultural/customers',
+            }
+        ]
+    },
+    {
+        id       : 'demo',
+        title    : 'Demo Modules',
+        // translate: 'NAV.AGRICULTURAL.TITLE',
+        type     : 'group',
+        icon     : 'drag_indicator',
         children : [ 
             {
                 id       : 'items',
@@ -32,121 +41,24 @@ export const navigation: FuseNavigation[] = [
                 type     : 'item',
                 icon     : 'drag_indicator',
                 url      : '/items',
+            },
+            {
+                id       : 'units',
+                title    : 'Units',
+                translate: 'NAV.UNITS',
+                type     : 'item',
+                icon     : 'drag_indicator',
+                url      : '/units',
+            },
+            {
+                id       : 'settings',
+                title    : 'Users',
+                // translate: 'NAV.SETTINGS.TITLE',
+                type     : 'item',
+                icon     : 'settings',
+                url      : 'settings/list/users'
             }
         ]
     },
-    {
-        id       : 'items',
-        title    : 'Items',
-        translate: 'NAV.FARM_MANAGEMENT',
-        type     : 'item',
-        icon     : 'event_seat',
-        url      : '/inventories'
-    },
-    // {
-    //     id       : 'items',
-    //     title    : 'Items',
-    //     translate: 'NAV.ITEMS',
-    //     type     : 'group',
-    //     children : [
-    //         {
-    //             id       : 'item-settings',
-    //             title    : 'Item Settings',
-    //             translate: 'NAV.ITEMS_SETTINGS.TITLE',
-    //             type     : 'item',
-    //             icon     : 'drag_indicator',
-    //             url      : '/items-settings',
-    //             badge    : {
-    //                 title    : '125',
-    //                 translate: '125',
-    //                 bg       : '#F44336',
-    //                 fg       : '#FFFFFF'
-    //             }
-    //         }
-    //     ]
-    // },
-    // {
-    //     id       : 'machinery',
-    //     title    : 'Machinery',
-    //     translate: 'NAV.MACHINERY',
-    //     type     : 'group',
-    //     children : [
-    //         {
-    //             id       : 'machinery-settings',
-    //             title    : 'Machinery Settings',
-    //             translate: 'NAV.MACHINERY_SETTINGS.TITLE',
-    //             type     : 'item',
-    //             icon     : 'event_seat',
-    //             url      : '/machinery-settings',
-    //             badge    : {
-    //                 title    : '25',
-    //                 translate: 'NAV.SAMPLE.BADGE',
-    //                 bg       : '#F44336',
-    //                 fg       : '#FFFFFF'
-    //             }
-    //         }
-    //     ]
-    // },
-    // {
-    //     id       : 'procurement',
-    //     title    : 'Procurement',
-    //     translate: 'NAV.PROCUREMENT',
-    //     type     : 'group',
-    //     children : [
-    //         {
-    //             id       : 'procurement-add-order',
-    //             title    : 'Add Order',
-    //             translate: 'NAV.PROCUREMENT_ADD_ORDER.TITLE',
-    //             type     : 'item',
-    //             icon     : 'add',
-    //             url      : '/add-order'
-    //         },
-    //         {
-    //             id       : 'procurement-orders',
-    //             title    : 'Orders',
-    //             translate: 'NAV.PROCUREMENT_ORDERS.TITLE',
-    //             type     : 'item',
-    //             icon     : 'view_list',
-    //             url      : '/procurement-orders',
-    //             badge    : {
-    //                 title    : '58',
-    //                 translate: '58',
-    //                 bg       : '#F44336',
-    //                 fg       : '#FFFFFF'
-    //             }
-    //         }
-    //     ]
-    // },
-    // {
-    //     id       : 'inventory',
-    //     title    : 'Inventory',
-    //     translate: 'NAV.INVENTORY',
-    //     type     : 'group',
-    //     children : [
-    //         {
-    //             id       : 'inventories',
-    //             title    : 'Inventories',
-    //             translate: 'NAV.INVENTORIES.TITLE',
-    //             type     : 'item',
-    //             icon     : 'view_list',
-    //             url      : '/inventories'
-    //         },
-    //         {
-    //             id       : 'stock',
-    //             title    : 'Stock',
-    //             translate: 'NAV.STOCK.TITLE',
-    //             type     : 'item',
-    //             icon     : 'view_list',
-    //             url      : '/stocks'
-    //         },
-    //         {
-    //             id       : 'receiving',
-    //             title    : 'Receiving',
-    //             translate: 'NAV.RECEIVING.TITLE',
-    //             type     : 'item',
-    //             icon     : 'view_list',
-    //             url      : '/receiving'
-    //         }
-    //     ]
-    // }
+
 ];

@@ -7,6 +7,8 @@ import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, Mat
 import { CompanyService } from './company.service';
 import { SettingsRegistry } from './settings.registry';
 import { SettingsSidebarComponent } from './layout/settings-sidebar/settings-sidebar.component';
+import { MaterialComponentsModule } from 'app/shared/material-components/material-components.module';
+import { FuseSharedModule } from '@fuse/shared.module';
 // import { CompanySettingsComponent } from './company-settings/company-settings.component';
 // import { RolesComponent } from './roles/roles.component';
 // import { UsersComponent } from './users/users.component';
@@ -62,21 +64,23 @@ const routes = [
 @NgModule({
     imports: [
         RouterModule.forRoot(routes),
+        // FuseSharedModule,
+        MaterialComponentsModule
 
-        MatButtonModule,
-        MatIconModule,
-        MatButtonModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatInputModule,
-        MatSelectModule,
-        MatStepperModule,
-        MatCheckboxModule,
-        MatMenuModule,
+        // MatButtonModule,
+        // MatIconModule,
+        // MatButtonModule,
+        // MatFormFieldModule,
+        // MatIconModule,
+        // MatInputModule,
+        // MatSelectModule,
+        // MatStepperModule,
+        // MatCheckboxModule,
+        // MatMenuModule,
         
-        MatTooltipModule,
-        MatDatepickerModule,
-        MatRippleModule,
+        // MatTooltipModule,
+        // MatDatepickerModule,
+        // MatRippleModule,
     ],
     declarations: [
         // SettingsSidebarComponent
@@ -88,20 +92,20 @@ const routes = [
     exports: [
         // SettingsSidebarComponent,
          
-        MatButtonModule,
-        MatIconModule,
-        MatButtonModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatInputModule,
-        MatSelectModule,
-        MatStepperModule,
-        MatCheckboxModule,
-        MatMenuModule,
+        // MatButtonModule,
+        // MatIconModule,
+        // MatButtonModule,
+        // MatFormFieldModule,
+        // MatIconModule,
+        // MatInputModule,
+        // MatSelectModule,
+        // MatStepperModule,
+        // MatCheckboxModule,
+        // MatMenuModule,
         
-        MatTooltipModule,
-        MatDatepickerModule,
-        MatRippleModule,
+        // MatTooltipModule,
+        // MatDatepickerModule,
+        // MatRippleModule,
     ]
 })
 export class SettingsRouting

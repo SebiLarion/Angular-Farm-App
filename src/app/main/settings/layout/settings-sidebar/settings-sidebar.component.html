@@ -24,27 +24,36 @@
 
         <div class="nav-item">
             <a class="nav-link" matRipple 
-                [routerLink]="['/settings/holding']"
+                [routerLink]="['/settings/list/holdings']"
                 [routerLinkActive]="['active', 'accent']">
                 <mat-icon class="nav-link-icon">dashboard</mat-icon>
-                <span>Holding</span>
+                <span>Holdings</span>
             </a>
         </div>
 
         <div class="nav-item">
             <a class="nav-link" matRipple
-                [routerLink]="['/settings/company']"
+                [routerLink]="['/settings/list/companies']"
                 [routerLinkActive]="['active', 'accent']">
                 <mat-icon class="nav-link-icon">dashboard</mat-icon>
-                <span>Company</span>
+                <span>Companies</span>
             </a>
         </div>
+
+        <div class="nav-item">
+                <a class="nav-link" matRipple
+                    [routerLink]="['/settings/list/farms']"
+                    [routerLinkActive]="['active', 'accent']">
+                    <mat-icon class="nav-link-icon">dashboard</mat-icon>
+                    <span>Farms</span>
+                </a>
+            </div>
 
         <div class="nav-subheader">SECURITY</div>
     
         <div class="nav-item">
             <a class="nav-link" matRipple 
-                [routerLink]="['/settings/user']"
+                [routerLink]="['/settings/list/users']"
                 [routerLinkActive]="['active', 'accent']">
                 <mat-icon class="nav-link-icon">account_circle</mat-icon>
                 <span>Users</span>

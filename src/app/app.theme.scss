@@ -82,6 +82,11 @@ $typography: mat-typography-config(
 @import "src/app/layout/components/toolbar/toolbar.theme";
 
 @import "src/app/main/items/items.theme";
+@import "src/app/main/units/units.theme";
+@import "src/app/main/settings/users/users.theme";
+// @import "src/app/main/settings/companies/companies.theme";
+
+@import "src/app/main/agricultural/suppliers/suppliers.theme";
 
 // Define a mixin for easier access
 @mixin components-theme($theme) {
@@ -91,6 +96,12 @@ $typography: mat-typography-config(
     @include toolbar-theme($theme);
     // Items
     @include items-theme($theme);
+    // Units
+    @include units-theme($theme);
+    // Users
+    @include users-theme($theme);
+    // Suppliers
+    @include suppliers-theme($theme);
 }
 
 // -----------------------------------------------------------------------------------------------------

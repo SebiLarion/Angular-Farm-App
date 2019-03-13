@@ -1,0 +1,183 @@
+<div id="item" class="page-layout carded fullwidth inner-scroll">
+
+  <!-- TOP BACKGROUND -->
+  <div class="top-bg accent-list"></div>
+  <!-- / TOP BACKGROUND -->
+
+  <!-- CENTER -->
+  <div class="center">
+
+    <!-- HEADER -->
+    <div class="header accent-list" fxLayout="row" fxLayoutAlign="space-between center">
+
+      <!-- APP TITLE -->
+      <div fxLayout="row" fxLayoutAlign="start center">
+
+        <button mat-icon-button class="mr-0 mr-sm-16" [routerLink]="'/settings/list/users'">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+
+        <div fxLayout="column" fxLayoutAlign="start start"
+            [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+          <div class="h2" *ngIf="pageType ==='edit'">
+              {{item.name}}
+          </div>
+          <div class="h2" *ngIf="pageType ==='new'">
+              New User
+          </div>
+          <div class="subtitle secondary-text">
+              <span>User Detail</span>
+          </div>
+        </div>
+      </div>
+      <!-- / APP TITLE -->
+
+    <div fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-xs="row"
+      fxLayoutAlign.gt-xs="space-between center">
+
+      <button *ngIf="!editMode"  (click)="edit()"
+        mat-raised-button type="button" 
+        class="edit mt-16 mt-sm-0 mx-4 fuse-white">
+        <mat-icon class="mr-8">save</mat-icon> Edit
+      </button>
+        
+      <button *ngIf="editMode && pageType ==='new'" (click)="add()" 
+        [disabled]="itemForm.invalid || itemForm.pristine"
+        mat-raised-button type="button" 
+        class="save mt-16 mt-sm-0 mx-4 fuse-white">
+        <mat-icon class="mr-8">save</mat-icon> Add
+      </button>
+
+      <button *ngIf="editMode && pageType ==='edit'" (click)="save()" 
+        [disabled]="itemForm.invalid || itemForm.pristine"
+        mat-raised-button type="button" 
+        class="save mt-16 mt-sm-0 mx-4 fuse-white">
+        <mat-icon class="mr-8">save</mat-icon> Save
+      </button>
+
+      <button *ngIf="editMode"  (click)="cancel()"
+        mat-raised-button type="button" class="cancel mt-16 mt-sm-0 mx-4 fuse-white">
+        <mat-icon class="mr-8">cancel</mat-icon> Cancel
+      </button>
+    </div>
+
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT CARD -->
+    <div class="content-card">
+
+      <!-- CONTENT -->
+      <div class="content">
+
+        <form   name="itemForm" [formGroup]="itemForm" [style.fontSize.px]="14" [style.lineHight.px]="16" [ngClass]="{'view': !editMode }"
+          class="item w-100-p" fxLayout="column" fxFlex>
+
+          <div class="p-24" fusePerfectScrollbar fxLayout="column">
+
+            <div fxLayout="row" fxLayoutAlign="space-between">
+
+              <mat-form-field appearance="outline" floatLabel="always" fxFlex="48">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email"
+                  name="email"
+                  formControlName="email"
+                  required>
+                <mat-error>{{getErrorMessage('email')}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" floatLabel="always" fxFlex="48">
+                  <mat-label>Password</mat-label>
+                  <input matInput placeholder="Password"
+                    name="password"
+                    formControlName="password"
+                    [type]="hide ? 'password' : 'text'"
+                    required>
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  <mat-error>{{getErrorMessage('password')}}</mat-error>
+              </mat-form-field>
+
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="space-between">
+
+              <mat-form-field appearance="outline" floatLabel="always" fxFlex="48">
+                <mat-label>Firstname</mat-label>
+                <input matInput placeholder="Firstname"
+                  name="firstname"
+                  formControlName="firstname"
+                  required>
+                <mat-error>{{getErrorMessage('lastname')}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" floatLabel="always" fxFlex="48">
+                <mat-label>Lastname</mat-label>
+                <input matInput placeholder="Lastname"
+                  name="lastname"
+                  formControlName="lastname">
+              </mat-form-field>
+
+            </div>
+
+              <div fxLayout="row" fxLayoutAlign="space-between">
+
+                <mat-form-field appearance="outline" floatLabel="always" fxFlex="48">
+                  <mat-label>Company</mat-label>
+                  <input matInput placeholder="Company"
+                    name="company"
+                    formControlName="company">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" floatLabel="always" fxFlex="48">
+                    <mat-label>Phone</mat-label>
+                    <input matInput placeholder="Phone"
+                      name="phone"
+                      formControlName="phone">
+                </mat-form-field>
+
+              </div>
+
+              <div fxLayout="row" fxLayoutAlign="space-between">
+
+                <div class="pt-20" fxFlex="15">
+                  <mat-slide-toggle name="holding_admin" 
+                    formControlName="holding_admin">
+                    Holding Admin
+                  </mat-slide-toggle>
+                </div>
+
+                <div class="pt-20" fxFlex="15">
+                  <mat-slide-toggle name="role_admin" formControlName="role_admin">
+                      Admin Role
+                  </mat-slide-toggle>
+                </div>
+
+                <div class="pt-20" fxFlex="15">
+                  <mat-slide-toggle name="role_livestock" formControlName="role_livestock">
+                      Livestock Access
+                  </mat-slide-toggle>
+                </div>
+
+                <div class="pt-20" fxFlex="15">
+                  <mat-slide-toggle name="role_agriculture" formControlName="role_agriculture">
+                      Agriculture Access
+                  </mat-slide-toggle>
+                </div>
+
+              </div>
+
+            </div>
+
+        </form>
+
+      </div>
+      <!-- / CONTENT -->
+
+    </div>
+    <!-- / CONTENT CARD -->
+
+  </div>
+  <!-- / CENTER -->
+
+</div>

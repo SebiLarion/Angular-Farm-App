@@ -8,6 +8,12 @@
 
 <div id="main">
 
+    <!-- TOOLBAR: Above -->
+    <ng-container *ngIf="fuseConfig.layout.toolbar.position === 'above'">
+        <ng-container *ngTemplateOutlet="toolbar"></ng-container>
+    </ng-container>
+    <!-- / TOOLBAR: Above -->
+
     <!-- NAVBAR: Top -->
     <ng-container>
         <ng-container *ngTemplateOutlet="topNavbar"></ng-container>
@@ -36,6 +42,12 @@
                 <!-- CONTENT -->
                 <content></content>
                 <!-- / CONTENT -->
+
+                <!-- FOOTER: Below -->
+                <ng-container *ngIf="fuseConfig.layout.footer.position === 'above-static'">
+                    <ng-container *ngTemplateOutlet="footer"></ng-container>
+                </ng-container>
+                <!-- / FOOTER: Below -->
 
             </div>
 

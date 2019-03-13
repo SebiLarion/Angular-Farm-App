@@ -1,0 +1,12 @@
+<?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg height="210mm" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 330 210" width="330mm" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><style type="text/css">
+   <![CDATA[
+    .str1 {stroke:black;stroke-width:0.2}
+    .str2 {stroke:#FF9C9C;stroke-width:0.2}
+    .str3 {stroke:#FFCCCC;stroke-width:0.2}
+    .str4 {stroke:#FFCCCC;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:round}
+    .str0 {stroke:black;stroke-width:5}
+    .fil2 {fill:black}
+    .fil0 {fill:#FF9C9C}
+    .fil1 {fill:#FFCCCC}
+   ]]>
+  </style></defs><g id="Layer_x0020_1"><ellipse class="fil0 str0" cx="222.05" cy="43.7058" rx="27.0302" ry="26.7703"/><ellipse class="fil1" cx="219.058" cy="47.1225" rx="22.6373" ry="22.4196"/><ellipse class="fil0 str0" cx="117.132" cy="43.7058" rx="27.0302" ry="26.7703"/><ellipse class="fil1" cx="120.124" cy="47.1225" rx="22.6373" ry="22.4196"/><ellipse class="fil0 str0" cx="169.591" cy="115.185" rx="85.6649" ry="84.8412"/><ellipse class="fil1" cx="174.343" cy="119.854" rx="76.6034" ry="75.8668"/><circle class="fil2 str1" cx="143.83" cy="92.3445" r="9.51379"/><circle class="fil2 str1" cx="195.352" cy="92.3445" r="9.51379"/><rect class="fil0 str2" height="40.5259" rx="70.047" ry="70.047" width="68.2027" x="135.49" y="117.649"/><circle class="fil1 str3" cx="155.805" cy="137.913" r="7.76576"/><circle class="fil1 str3" cx="183.377" cy="137.913" r="7.76576"/><path class="fil1 str4" d="M184.023 119.317c6.5074,1.0402 12.0703,4.5006 16.1325,12.6956 -2.6989,-7.9627 -6.6997,-11.6909 -16.1325,-12.6956z"/></g></svg>

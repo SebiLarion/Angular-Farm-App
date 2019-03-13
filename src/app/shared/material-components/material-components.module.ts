@@ -2,9 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
-import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule, MatStepperModule, MatCheckboxModule, MatMenuModule, MatTooltipModule, MatDatepickerModule, MatRippleModule, MatChipsModule, MatExpansionModule, MatPaginatorModule, MatSortModule, MatSnackBarModule, MatTableModule, MatTabsModule, MatSlideToggleModule } from '@angular/material';
+import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule, MatStepperModule, MatCheckboxModule, MatMenuModule, MatTooltipModule, MatDatepickerModule, MatRippleModule, MatChipsModule, MatExpansionModule, MatPaginatorModule, MatSortModule, MatSnackBarModule, MatTableModule, MatTabsModule, MatSlideToggleModule, MatButtonToggleModule, MatListModule } from '@angular/material';
 import { FMDatepickerComponent } from '../fm-datepicker/fm-datepicker.component';
 
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
@@ -32,8 +31,7 @@ export const MY_FORMATS = {
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
   ],
   imports: [
-    CommonModule,
-    FormsModule, BrowserAnimationsModule, ReactiveFormsModule,
+    FormsModule, ReactiveFormsModule,
     // Material
     MatButtonModule,
     MatIconModule,
@@ -49,11 +47,13 @@ export const MY_FORMATS = {
     MatTooltipModule,
     MatDatepickerModule,
     MatRippleModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+
+    MatButtonToggleModule,
+    MatListModule
+
   ],
   exports: [
-    CommonModule,
-    FormsModule, BrowserAnimationsModule, ReactiveFormsModule,
     // Material
     MatButtonModule,
     MatIconModule,
@@ -76,6 +76,9 @@ export const MY_FORMATS = {
     MatTableModule,
     MatTabsModule,
     MatSlideToggleModule,
+
+    MatButtonToggleModule,
+    MatListModule,
 
     //custom components
     FMDatepickerComponent

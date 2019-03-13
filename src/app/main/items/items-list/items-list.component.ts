@@ -20,7 +20,7 @@ import { takeUntil } from 'rxjs/internal/operators';
 export class ItemsListComponent implements OnInit, OnDestroy
 {
     dataSource: FilesDataSource | null;
-    displayedColumns = ['id',  'category', 'name', 'description',  'createdOn', 'updatedOn'];
+    displayedColumns = ['name', 'description', 'supplier', 'active', 'createdOn'];
 
     @ViewChild(MatPaginator)
     paginator: MatPaginator;
@@ -158,23 +158,8 @@ export class FilesDataSource extends DataSource<any>
 
             switch ( this._matSort.active )
             {
-                case 'id':
-                    [propertyA, propertyB] = [a.id, b.id];
-                    break;
-                case 'code':
-                    [propertyA, propertyB] = [a.code, b.code];
-                    break;
                 case 'name':
                     [propertyA, propertyB] = [a.name, b.name];
-                    break;
-                case 'description':
-                    [propertyA, propertyB] = [a.description, b.description];
-                    break;
-                case 'total':
-                    [propertyA, propertyB] = [a.total, b.total];
-                    break;
-                case 'active':
-                    [propertyA, propertyB] = [a.active, b.active];
                     break;
                 case 'createdOn':
                     [propertyA, propertyB] = [a.createdOn, b.createdOn];

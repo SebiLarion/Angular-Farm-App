@@ -58,6 +58,8 @@ export class ItemComponent implements OnInit, OnDestroy
                 {
                     this.pageType = 'edit';
                     this.item = new Item(item); 
+                    console.log('ITEM EDITED:', item, this.item);
+                    this.setViewMode(); // hack: add this line if form is using mat-slide-toggle fields
                     this.itemForm = this.createItemForm();
                     this.setViewMode();
                 }
@@ -86,34 +88,41 @@ export class ItemComponent implements OnInit, OnDestroy
 
     createItemForm(): FormGroup
     {
-
         return this._formBuilder.group({
-            id:              [this.item.id],
-            category:        [this.item.category],
-            name:            [this.item.name],
-            type:            [this.item.type],
-            minumumStoc:     [this.item.minumumStoc],
-            warranty:        [this.item.warranty],
-            specialDiscount: [this.item.specialDiscount],
-            maximumDiscount: [this.item.maximumDiscount],
-            primaryUm:       [this.item.primaryUm],
-            netWeight:       [this.item.netWeight],
-            grossWeight:     [this.item.grossWeight],
-            width:           [this.item.width],
-            height:          [this.item.height],
-            depth:           [this.item.depth],
-            um:              [this.item.um],
-            supDiscount:     [this.item.supDiscount],
-            transport:       [this.item.transport],
-            customs:         [this.item.customs],
-            directCosts:     [this.item.directCosts],
-            salePrice:       [this.item.salePrice],
-            currency:        [this.item.currency],
-            description:     [this.item.description],
-            image:           [this.item.image],
-            createdOn:       [this.item.createdOn],
-            updatedOn:       [this.item.updatedOn],
-            
+            id: [this.item.id],
+            name: [this.item.name],
+            description: [this.item.description],
+            techDescription: [this.item.techDescription],
+            supplier: [this.item.supplier],
+            externalId: [this.item.externalId],
+            active: [this.item.active],
+
+            recordOnly: [this.item.recordOnly],
+            // General
+            category: [this.item.category],
+            warranty: [this.item.warranty],
+            sn: [this.item.sn],
+            itemType: [this.item.itemType],
+            department: [this.item.department],
+            // General properties
+            primaryUM: [this.item.primaryUM],
+            netWeight: [this.item.netWeight],
+            grossWeight: [this.item.grossWeight],
+            width: [this.item.width],
+            height: [this.item.height],
+            depth: [this.item.depth],
+            um: [this.item.um],
+            // Cost
+            suppliersPrice: [this.item.suppliersPrice],
+            suppliersDiscount: [this.item.suppliersDiscount],
+            transport: [this.item.transport],
+            customs: [this.item.customs],
+            vat: [this.item.vat],
+            // Images
+            imageUrl: [this.item.imageUrl],
+            // Meta
+            createdOn: [this.item.createdOn],
+            updatedOn: [this.item.updatedOn],
         });
     }
 

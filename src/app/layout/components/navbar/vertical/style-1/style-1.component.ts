@@ -79,8 +79,8 @@ export class NavbarVerticalStyle1Component implements OnInit, OnDestroy
 
                         if ( activeNavItem )
                         {
-                            const activeItemOffsetTop       = activeNavItem.offsetTop,
-                                  activeItemOffsetParentTop = activeNavItem.offsetParent.offsetTop,
+                            const activeItemOffsetTop       = activeNavItem && activeNavItem.offsetTop || 0,
+                                  activeItemOffsetParentTop = activeNavItem && activeNavItem.offsetParent && activeNavItem.offsetParent.offsetTop || 0,
                                   scrollDistance            = activeItemOffsetTop - activeItemOffsetParentTop - (48 * 3) - 168;
 
                             this._fusePerfectScrollbar.scrollToTop(scrollDistance);

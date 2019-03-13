@@ -31,3 +31,16 @@ settings-layout .center .header .search-wrapper {
     min-height: 37px;
     max-height: 37px;
 }
+
+
+// smaller sidebar
+
+.page-layout.carded.left-sidebar > .sidebar, 
+.page-layout.carded.right-sidebar > .sidebar {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+}

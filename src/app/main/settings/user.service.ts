@@ -4,7 +4,7 @@ import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/r
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable()
-export class UserService implements Resolve<any>
+export class User1Service implements Resolve<any>
 {
     onUserDetailsChanged: BehaviorSubject<any>;
 

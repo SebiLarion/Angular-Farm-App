@@ -1,0 +1,88 @@
+<!-- SIDEBAR HEADER -->
+<div fxLayout="column" fxLayoutAlign="space-between start"
+     class="header accent p-24 pb-4">
+
+    <div class="logo" fxFlex fxLayout="row" fxLayoutAlign="start center">
+        <mat-icon class="logo-icon s-32" [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">
+            dashboard
+        </mat-icon>
+        <span class="logo-text" [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">Agricultural Holding</span>
+    </div>
+
+    <!-- <div class="account" fxLayout="column" [@animate]="{value:'*',params:{delay:'300ms'}}">
+    </div> -->
+
+</div>
+<!-- / SIDEBAR HEADER -->
+
+<!-- SIDEBAR CONTENT -->
+<div class="content pt-12" fusePerfectScrollbar [@animate]="{value:'*',params:{y:'50px'}}">
+
+    <div class="nav material2">
+
+        <div class="nav-subheader">ITEMS</div>
+
+        <div class="nav-item">
+            <a class="nav-link" matRipple 
+                [routerLink]="['/items']"
+                [routerLinkActive]="['active', 'accent']">
+                <mat-icon class="nav-link-icon">dashboard</mat-icon>
+                <span>Items</span>
+            </a>
+        </div>
+
+        <div class="nav-item">
+            <a class="nav-link" matRipple
+                [routerLink]="['/items/new']"
+                [routerLinkActive]="['active', 'accent']">
+                <mat-icon class="nav-link-icon">dashboard</mat-icon>
+                <span>Add new item</span>
+            </a>
+        </div>
+
+        <!-- <div class="nav-subheader">SUPPLIER</div>
+    
+        <div class="nav-item">
+            <a class="nav-link" matRipple 
+                [routerLink]="['/agricultural/suppliers']"
+                [routerLinkActive]="['active', 'accent']"
+                [routerLinkActiveOptions]="{ exact: true }">
+                <mat-icon class="nav-link-icon">account_circle</mat-icon>
+                <span>Suppliers</span>
+            </a>
+        </div>
+
+        <div class="nav-item">
+            <a class="nav-link" matRipple 
+                [routerLink]="['/agricultural/suppliers/new']"
+                [routerLinkActive]="['active', 'accent']">
+                <mat-icon class="nav-link-icon">security</mat-icon>
+                <span>Add new supplier</span>
+            </a>
+        </div> -->
+
+        <div class="nav-subheader">CUSTOMERS</div>
+    
+        <div class="nav-item">
+            <a class="nav-link" matRipple 
+                [routerLink]="['/agricultural/customers']"
+                [routerLinkActive]="['active', 'accent']"
+                [routerLinkActiveOptions]="{ exact: true }">
+                <mat-icon class="nav-link-icon">account_circle</mat-icon>
+                <span>Customers</span>
+            </a>
+        </div>
+
+        <div class="nav-item">
+            <a class="nav-link" matRipple 
+                [routerLink]="['/agricultural/customers/new']"
+                [routerLinkActive]="['active', 'accent']">
+                <mat-icon class="nav-link-icon">security</mat-icon>
+                <span>Add new customer</span>
+            </a>
+        </div>
+
+    </div>
+
+</div>
+<!-- / SIDEBAR CONTENT -->

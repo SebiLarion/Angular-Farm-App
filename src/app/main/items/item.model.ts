@@ -3,89 +3,79 @@ import { FuseUtils } from '@fuse/utils';
 
 export class Item
 {
-    // id: string;
-    // code: string;
-    // name: string;
-    // description: string;
-    // active: boolean;
-    // subtotal: string;
-    // tax: string;
-    // discount: string;
-    // total: string;
-    // createdOn: any;
-    // updatedOn: any;
+    id: string;
+    name: string;
+    description: string;
+    techDescription: string;
+    supplier: string;
+    externalId: number;
+    active: boolean;
 
-    // constructor(item?)
-    // {
-    //     item = item || {};
+    recordOnly: boolean;
+    // General
+    category: string;
+    warranty: number;
+    sn: string;
+    itemType: number;
+    department: string;
+    // General properties
+    primaryUM: string;
+    netWeight: number;
+    grossWeight: number;
+    width: number;
+    height: number;
+    depth: number;
+    um: number;
+    // Cost
+    suppliersPrice: number;
+    suppliersDiscount: number;
+    transport: number;
+    customs: number;
+    vat: number;
+    // Images
+    imageUrl: string;
+    // Meta
+    createdOn: any;
+    updatedOn: any;
 
-    //     this.id = item.id || FuseUtils.generateGUID();
-    //     this.code = item.code || '';
-    //     this.name = item.name || '';
-    //     this.description = item.description || '';
-    //     this.active = item.active || true;
-    //     this.subtotal = item.subtotal || 0;
-    //     this.tax = item.tax || 0;
-    //     this.discount = item.discount || 0;
-    //     this.total = item.total || 0;
-    //     this.createdOn = moment(item.createdOn) || moment();
-    //     this.updatedOn = moment(item.updatedOn) || moment();
+    constructor(item?)
+    {
+        item = item || {};
 
-    // }
-      id: string;
-      category: string;
-      name: string;
-      type: string;
-      minumumStoc: string;
-      warranty: string;
-      specialDiscount: string;
-      maximumDiscount: string;
-      primaryUm: string;
-      netWeight: string;
-      grossWeight: string;
-      width: string;
-      height: string;
-      depth: string;
-      um: string;
-      supDiscount: string;
-      transport: string;
-      customs: string;
-      directCosts: string;
-      salePrice: string;
-      currency: string;
-      description: string;
-      image: string;
-      createdOn: any;
-      updatedOn: any;
+        this.id= item.id || FuseUtils.generateGUID();
+        this.name= item.name || '';
+        this.description= item.description || '';
+        this.techDescription= item.techDescription || '';
+        this.supplier= item.supplier || '';
+        this.externalId= item.externalId || 0;
+        this.active= item.active || '';
 
-        constructor(item?)    
-        {
-            item = item || {};
-            this.id = item.id || FuseUtils.generateGUID();
-            this.category = item.category || '';
-            this.name = item.name || '';
-            this.type = item.type || '';
-            this.minumumStoc = item.minumumStoc || '';
-            this.warranty = item.warranty || '';
-            this.specialDiscount = item.specialDiscount || '';
-            this.maximumDiscount = item.maximumDiscount || '';
-            this.primaryUm = item.primaryUm || '';
-            this.netWeight = item.netWeight|| '';
-            this.grossWeight = item.grossWeight|| '';
-            this.width = item.width|| '';
-            this.height = item.height|| '';
-            this.depth = item.depth|| '';
-            this.um = item.um|| '';
-            this.supDiscount = item.supDiscount|| '';
-            this.transport = item.transport|| '';
-            this.customs = item.customs|| '';
-            this.directCosts = item.directCosts|| '';
-            this.salePrice = item.salePrice|| '';
-            this.currency= item.currency|| '';
-            this.description = item.description || '';
-            this.image = item.image || '';
-            this.createdOn = moment(item.createdOn) || moment();
-            this.updatedOn = moment(item.updatedOn) || moment();
+        this.recordOnly= item.recordOnly || '';
+        // General
+        this.category= item.category || '';
+        this.warranty= item.warranty || 3;
+        this.sn= item.sn || '';
+        this.itemType= item.itemType || 100;
+        this.department= item.department || '';
+        // General properties
+        this.primaryUM= item.primaryUM || '';
+        this.netWeight= item.netWeight || '';
+        this.grossWeight= item.grossWeight || '';
+        this.width= item.width || 0;
+        this.height= item.height || 0;
+        this.depth= item.depth || 0;
+        this.um= item.um || 0;
+        // Cost
+        this.suppliersPrice= item.suppliersPrice || 0;
+        this.suppliersDiscount= item.suppliersDiscount || 0;
+        this.transport = item.transport || 0;
+        this.customs= item.customs || 0;
+        this.vat= item.vat || 0;
+        // Images
+        this.imageUrl= item.imageUrl || 'https://via.placeholder.com/468x480?text=No image uploaded';
+        // Meta
+        this.createdOn = moment(item.createdOn) || moment();
+        this.updatedOn = moment(item.updatedOn) || moment();
 
-        }
+    }
 }

@@ -19,7 +19,7 @@
                     shopping_basket
                 </mat-icon>
                 <span class="logo-text h1" [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
-                    Categories</span>
+                    Items</span>
             </div>
             <!-- / APP TITLE -->
 
@@ -27,7 +27,7 @@
             <div class="search-wrapper  ml-sm-32">
                 <div class="search" fxFlex fxLayout="row" fxLayoutAlign="start center">
                     <mat-icon>search</mat-icon>
-                    <input #filter placeholder="Search for a category">
+                    <input #filter placeholder="Search for an item">
                 </div>
             </div>
             <!-- / SEARCH -->
@@ -36,7 +36,7 @@
             <button mat-raised-button
                 [routerLink]="'/items/new'"
                 class="add-product-button fuse-white mt-24 mt-md-0">
-                <span>NEW CATEGORY</span>
+                <span>NEW ITEM</span>
             </button>
             <!-- / ADD BUTTON -->
 
@@ -53,59 +53,30 @@
                        fusePerfectScrollbar>
 
                 <!-- ID Column -->
-                <ng-container matColumnDef="id">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+                <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
                     <mat-cell *matCellDef="let item">
-                        <p class="text-truncate">{{item.id}}</p>
+                        <p class="text-truncate">{{item.name}}</p>
                     </mat-cell>
                 </ng-container>
 
                 <!-- Code Column -->
-                <ng-container matColumnDef="category">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header fxHide fxShow.gt-sm>Category</mat-header-cell>
+                <ng-container matColumnDef="description">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header fxHide fxShow.gt-sm>description</mat-header-cell>
                     <mat-cell *matCellDef="let item" fxHide fxShow.gt-sm>
-                        <p class="text-truncate">{{item.category}}</p>
+                        <p class="text-truncate">{{item.description}}</p>
                     </mat-cell>
                 </ng-container>
 
                 <!-- Name Column -->
-                <ng-container matColumnDef="name">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+                <ng-container matColumnDef="supplier">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Supplier</mat-header-cell>
                     <mat-cell *matCellDef="let item">
                         <p class="text-truncate">
-                            {{item.name}}
+                            {{item.supplier}}
                         </p>
                     </mat-cell>
                 </ng-container>
-
-                <!-- Desc Column -->
-                <ng-container matColumnDef="description">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Description</mat-header-cell>
-                    <mat-cell *matCellDef="let item">
-                        <p class="text-truncate">
-                            {{item.description}}
-                        </p>
-                    </mat-cell>
-                </ng-container>
-
-                <!-- Total Price Column -->
-                <!-- <ng-container matColumnDef="total">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header fxHide fxShow.gt-md>Total</mat-header-cell>
-                    <mat-cell *matCellDef="let item" fxHide fxShow.gt-md>
-                        <p class="total-price text-truncate">
-                            {{item.total | currency:'USD':'symbol'}}
-                        </p>
-                    </mat-cell>
-                </ng-container> -->
-
-                <!-- Active Column -->
-                <!-- <ng-container matColumnDef="active">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Active</mat-header-cell>
-                    <mat-cell *matCellDef="let item">
-                        <mat-icon *ngIf="item.active" class="active-icon green-600 s-16">check</mat-icon>
-                        <mat-icon *ngIf="!item.active" class="active-icon red-500 s-16">close</mat-icon>
-                    </mat-cell>
-                </ng-container> -->
 
                 <!-- Date Column -->
                 <ng-container matColumnDef="createdOn">
@@ -116,12 +87,13 @@
                         </p>
                     </mat-cell>
                 </ng-container>
-                <ng-container matColumnDef="updatedOn">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header fxHide fxShow.gt-sm>Updated on</mat-header-cell>
-                    <mat-cell *matCellDef="let item" fxHide fxShow.gt-sm>
-                        <p class="text-truncate">
-                            {{item.updatedOn | date:'yyyy/MM/dd'}}
-                        </p>
+
+                <!-- Active Column -->
+                <ng-container matColumnDef="active">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Active</mat-header-cell>
+                    <mat-cell *matCellDef="let item">
+                        <mat-icon *ngIf="item.active" class="active-icon green-600 s-16">check</mat-icon>
+                        <mat-icon *ngIf="!item.active" class="active-icon red-500 s-16">close</mat-icon>
                     </mat-cell>
                 </ng-container>
 

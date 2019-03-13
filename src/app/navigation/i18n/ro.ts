@@ -2,6 +2,12 @@ export const locale = {
     lang: 'ro',
     data: {
         'NAV': {
+            'UNITS': 'Unitati',
+            'AGRICULTURAL': {
+                'TITLE': 'Agricultural Holding',
+                'SUPPLIERS': 'Furnizori',
+                'CUSTOMERS': 'Clienti'
+            },
             'FARM_MANAGEMENT': 'Agricultural Holding',
             'START': 'Start',
             'SETTINGS': {
@@ -16,6 +22,7 @@ export const locale = {
             },
             'LIVESTOCK': 'Livestock',
             'ITEMS': 'Unitati',
+            'CATEGORIES': 'Categorii',
             'ITEMS_SETTINGS': {
                 'TITLE': 'Setari Unitati'
             },

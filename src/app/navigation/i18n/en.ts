@@ -2,6 +2,12 @@ export const locale = {
     lang: 'en',
     data: {
         'NAV': {
+            'UNITS': 'Units',
+            'AGRICULTURAL': {
+                'TITLE': 'Agricultural Holding',
+                'SUPPLIERS': 'Suppliers',
+                'CUSTOMERS': 'Customers'
+            },
             'FARM_MANAGEMENT': 'Agricultural Holding',
             'START': 'Start',
             'SETTINGS': {
@@ -16,6 +22,8 @@ export const locale = {
             },
             'LIVESTOCK': 'Livestock',
             'ITEMS': 'Items',
+            'TYPES': 'Types',
+            'CATEGORIES': 'Categories',
             'ITEMS_SETTINGS': {
                 'TITLE': 'Items Settings'
             },

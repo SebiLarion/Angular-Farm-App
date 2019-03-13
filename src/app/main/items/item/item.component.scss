@@ -1,8 +1,8 @@
-#product {
+#item {
 
     .header {
 
-        .product-image {
+        .item-image {
             overflow: hidden;
             width: 56px;
             min-width: 56px;
@@ -38,10 +38,12 @@
         }
 
         .mat-tab-label {
-            height: 64px;
+            height: 44px;
+            padding: 0 4px !important;
+            min-width: 120px;
         }
 
-        .product-image {
+        .item-image {
             overflow: hidden;
             width: 128px;
             height: 128px;
@@ -64,5 +66,3 @@
     }
 
 }
-
- 

@@ -3,19 +3,14 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { FuseSharedModule } from '@fuse/shared.module';
+import { MaterialComponentsModule } from 'app/shared/material-components/material-components.module';
 
-import { ItemsSettingsComponent } from './items-settings/items-settings.component';
 import { ItemsListComponent } from './items-list/items-list.component';
 import { ItemsService } from './items-list/items.service';
-import { MaterialComponentsModule } from 'app/shared/material-components/material-components.module';
 import { ItemService } from './item.service';
 import { ItemComponent } from './item/item.component';
 
 const routes = [
-    {
-        path     : 'items-settings',
-        component: ItemsSettingsComponent
-    },
     {
         path     : 'items',
         component: ItemsListComponent,
@@ -34,7 +29,6 @@ const routes = [
 
 @NgModule({
     declarations: [
-        ItemsSettingsComponent,
         ItemsListComponent,
         ItemComponent
     ],
@@ -49,7 +43,7 @@ const routes = [
         MaterialComponentsModule
     ],
     exports     : [
-        ItemsSettingsComponent,
+        ItemsListComponent,
         ItemComponent
     ]
 })
