@@ -12,6 +12,20 @@ import { CustomerComponent } from './customer/customer.component';
 
 
 const routes = [
+    {
+        path     : 'customers',
+        component: CustomersListComponent,
+        resolve  : {
+            data: CustomersService
+        }
+    },
+    {
+        path     : 'customers/:id',
+        component: CustomerComponent,
+        resolve  : {
+            data: CustomerService
+        }
+    }
 
 ];
 
@@ -25,7 +39,7 @@ const routes = [
         CustomerService
     ],
     imports: [
-        // RouterModule.forChild(routes),
+        RouterModule.forChild(routes),
         TranslateModule,
         FuseSharedModule,
         MaterialComponentsModule

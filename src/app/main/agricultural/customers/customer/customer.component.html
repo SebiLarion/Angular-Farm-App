@@ -1,5 +1,344 @@
-<div id="item" class="page-layout carded fullwidth inner-scroll">
+<div id="unit" class="page-layout carded fullwidth inner-scroll">
 
-  <p>Customer ADD/EDIT component</p>
+    <!-- TOP BACKGROUND -->
+    <div class="top-bg accent"></div>
+    <!-- / TOP BACKGROUND -->
+  
+    <!-- CENTER -->
+    <div class="center">
+  
+        <!-- HEADER -->
+        <div class="header accent" fxLayout="row" fxLayoutAlign="space-between center">
+  
+            <!-- APP TITLE -->
+            <div fxLayout="row" fxLayoutAlign="start center">
+  
+                <button mat-icon-button class="mr-0 mr-sm-16" [routerLink]="'/agricultural/customers'">
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+  
+                <div fxLayout="column" fxLayoutAlign="start start"
+                     [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+                    <div class="h2" *ngIf="pageType ==='edit'">
+                        {{item.name}}
+                    </div>
+                    <div class="h2" *ngIf="pageType ==='new'">
+                        New Customer
+                    </div>
+                    <div class="subtitle secondary-text">
+                        <span>Details</span>
+                    </div>
+                </div>
+            </div>
+            <!-- / APP TITLE -->
+  
+          <div fxLayout="column" fxLayoutAlign="center center" fxLayout.gt-xs="row"
+            fxLayoutAlign.gt-xs="space-between center">
 
-</div>
+  
+              <button *ngIf="!editMode"  (click)="edit()"
+                  mat-raised-button type="button" color="primary" 
+                  class="edit mt-16 mt-sm-0 mx-4 fuse-white">
+                  <mat-icon class="mr-8">save</mat-icon> Edit
+              </button>
+              
+              <button *ngIf="editMode && pageType ==='new'" (click)="add()" 
+                  [disabled]="form.invalid || form.pristine"
+                  mat-raised-button type="button" color="primary" 
+                  class="save mt-16 mt-sm-0 mx-4 fuse-white">
+                  <mat-icon class="mr-8">save</mat-icon> Add
+              </button>
+  
+              <button *ngIf="editMode && pageType ==='edit'" (click)="save()" 
+                  [disabled]="form.invalid || form.pristine"
+                  mat-raised-button type="button" color="primary" 
+                  class="save mt-16 mt-sm-0 mx-4 fuse-white">
+                  <mat-icon class="mr-8">save</mat-icon> Save
+              </button>
+  
+              <button *ngIf="editMode"  (click)="cancel()"
+                  mat-raised-button type="button" color="primary" class="cancel mt-16 mt-sm-0 mx-4 fuse-white">
+                  <mat-icon class="mr-8">cancel</mat-icon> Cancel
+              </button>
+              
+          </div>
+  
+  
+        </div>
+        <!-- / HEADER -->
+  
+        <!-- CONTENT CARD -->
+        <div class="content-card">
+  
+          <!-- CONTENT -->
+          <div class="content">
+           
+  
+            <form *ngIf="form"  name="form" [formGroup]="form" [style.fontSize.px]="14" [style.lineHight.px]="16" [ngClass]="{'view': !editMode }"
+              class="unit w-100-p" fxLayout="column" fxFlex>
+              <hr>
+
+              <div fxLayout="row" fxLayoutAlign="space-between">
+  
+                  <mat-form-field appearance="outline" floatLabel="always" fxFlex="50">
+                    <mat-label>ID</mat-label>
+                    <input matInput placeholder="Id"
+                            name="id"
+                            formControlName="id"
+                            required>
+                  </mat-form-field>
+
+                  <div class="pt-20" fxFlex="12">
+                      <mat-label><span>Customer Status</span></mat-label>
+                    </div>
+
+                  <div class="pt-20" fxFlex="12">
+                      <mat-slide-toggle name="active" formControlName="active">
+                          Active
+                      </mat-slide-toggle>
+                    </div>
+
+                    <div class="pt-20" fxFlex="12">
+                      <mat-slide-toggle name="recordOnly" formControlName="recordOnly">
+                        Record Only
+                      </mat-slide-toggle>
+                    </div>
+
+               </div>
+
+               <div fxLayout="row" fxLayoutAlign="space-between">
+                  <mat-form-field appearance="outline" floatLabel="always" fxFlex="70">
+                      <mat-label>Description</mat-label>
+                      <input matInput placeholder="Description"
+                              name="description"
+                              formControlName="description"
+                              required>
+                  </mat-form-field>
+
+
+               </div>               
+
+  
+              <mat-tab-group>
+
+  
+                  <mat-tab label="General">
+  
+                    <div class="tab-content p-24" fusePerfectScrollbar >
+
+                        <div fxLayout="row" fxLayoutAlign="space-between" >   
+                        <div fxLayout="column" fxLayoutAlign="space-between" fxFlex="40">                                       
+  
+                        <mat-form-field appearance="outline" floatLabel="always" >
+                            <mat-label>Detailed Description</mat-label>
+                            <textarea matInput placeholder="Detailed Description"
+                                      name="detDescription"
+                                      formControlName="detDescription"
+                                      rows="5">
+                            </textarea>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" floatLabel="always">
+                            <mat-label>Address</mat-label>
+                            <input matInput placeholder="Address"
+                                    name="address"
+                                    formControlName="address"
+                                    required>
+                        </mat-form-field> 
+                        <mat-form-field appearance="outline" floatLabel="always" >
+                            <mat-label>Postal Code</mat-label>
+                            <input matInput placeholder="Postal Code"
+                                    name="postalCode"
+                                    formControlName="postalCode"
+                                    type="number"
+                                    required>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" fxFlex="35">
+                            <mat-label>Country</mat-label>
+                            <mat-select formControlName="country">
+                            <mat-option [value]="'Country 1'">
+                               Country 1
+                            </mat-option>
+                            <mat-option [value]="'Country 2'">
+                                Country 2
+                            </mat-option>
+                            <mat-option [value]="'Country 3'">
+                                Country 3
+                            </mat-option>
+                            <mat-option [value]="'Country 4'">
+                                Country 4
+                            </mat-option>
+                            <mat-option [value]="'Country 5'">
+                                Country 5
+                            </mat-option>
+                              
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" floatLabel="always">
+                            <mat-label>Contact Person</mat-label>
+                            <input matInput placeholder="Contact Person"
+                                    name="contactPerson"
+                                    formControlName="contactPerson"
+                                    required>
+                        </mat-form-field> 
+                        <mat-form-field appearance="outline" floatLabel="always">
+                            <mat-label>Phone</mat-label>
+                            <input matInput placeholder="Phone"
+                                    name="phone"
+                                    formControlName="phone"
+                                    required>
+                        </mat-form-field> 
+                        <mat-form-field appearance="outline" floatLabel="always">
+                            <mat-label>Email</mat-label>
+                            <input matInput placeholder="Email"
+                                    name="email"
+                                    formControlName="email"
+                                    required>
+                        </mat-form-field> 
+
+                       
+                      </div>
+                      <div fxLayout="column"  fxFlex="40">   
+
+                          <mat-form-field appearance="outline" floatLabel="always" fxFlex="35">
+                              <mat-label>Tax Number</mat-label>
+                              <input matInput placeholder="Tax Number"
+                                      name="taxNumber"
+                                      formControlName="taxNumber"
+                                      required>
+                          </mat-form-field>
+
+
+                          <mat-form-field appearance="outline" floatLabel="always" >
+                              <mat-label>Other Info</mat-label>
+                              <textarea matInput placeholder="Other Info"
+                                        name="otherInfo"
+                                        formControlName="otherInfo"
+                                        rows="5">
+                              </textarea>
+                          </mat-form-field>
+
+                      </div>
+  
+                    </div>
+                  </div>
+
+  
+                  </mat-tab>
+  
+                  <mat-tab label="Contract Pricing">
+  
+                      <div class="tab-content p-24" fusePerfectScrollbar>
+  
+                        <div fxLayout="row" fxLayoutAlign="space-between">
+                       
+                          <div fxLayout="column" fxLayoutAlign="space-between" fxFlex="40">  
+  
+                            <mat-form-field appearance="outline" fxFlex="35">
+                                <mat-label>Item</mat-label>
+                                <mat-select formControlName="item">
+                                <mat-option [value]="'Item 1'">
+                                    Item 1
+                                </mat-option>
+                                <mat-option [value]="'Item 2'">
+                                    Item 2
+                                </mat-option>
+                                <mat-option [value]="'Item 3'">
+                                    Item 3
+                                </mat-option>
+                                <mat-option [value]="'Item 4'">
+                                    Item 4
+                                </mat-option>
+                                                               
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" floatLabel="always" >
+                                <mat-label>Price</mat-label>
+                                <input matInput placeholder="Price"
+                                        name="price"
+                                        formControlName="price"
+                                        type="number"
+                                        required>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" fxFlex="35">
+                                <mat-label>Currency</mat-label>
+                                <mat-select formControlName="currency">
+                                <mat-option [value]="'USD'">
+                                    USD
+                                </mat-option>
+                                <mat-option [value]="'EUR'">
+                                    EUR
+                                </mat-option>
+                                <mat-option [value]="'GBP'">
+                                   GBP
+                                </mat-option>
+                                                                                            
+                                </mat-select>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" floatLabel="always" >
+                                <mat-label>Discount % </mat-label>
+                                <input matInput placeholder="discount"
+                                        name="discount"
+                                        formControlName="discount"
+                                        type="number"
+                                        required>
+                            </mat-form-field>
+  
+                        </div>
+                        <div fxLayout="column" fxLayoutAlign="space-between" fxFlex="40"> 
+                            <div fxLayout="row" fxLayoutAlign="space-between">
+
+                            
+                                <mat-label><span>Purchasing Price</span></mat-label>
+                                <mat-form-field appearance="outline" floatLabel="always" fxFlex="20"> 
+                                 <mat-label>Item</mat-label>                         
+                              <mat-select formControlName="item">
+                              <mat-option [value]="'Item 1'">
+                                  Item 1
+                              </mat-option>
+                              <mat-option [value]="'Item 2'">
+                                  Item 2
+                              </mat-option>
+                              <mat-option [value]="'Item 3'">
+                                  Item 3
+                              </mat-option>
+                              <mat-option [value]="'Item 4'">
+                                  Item 4
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                            <mat-form-field appearance="outline" floatLabel="always" >
+                                <mat-label>Price</mat-label>
+                                <input matInput placeholder="Price"
+                                        name="price"
+                                        formControlName="price"
+                                        type="number"
+                                        required>
+                            </mat-form-field>
+          
+                        </div>
+                      </div>
+  
+                      </div>
+                      </div>
+                  </mat-tab>
+  
+                  
+  
+              </mat-tab-group>
+  
+            </form>
+  
+          </div>
+          <!-- / CONTENT -->
+  
+        </div>
+        <!-- / CONTENT CARD -->
+  
+    </div>
+    <!-- / CENTER -->
+  
+  </div>
+  
